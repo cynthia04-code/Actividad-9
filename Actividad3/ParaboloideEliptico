@@ -1,0 +1,21 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(-4, 2, 100)
+y = np.linspace(-1, 4, 100)
+X, Y = np.meshgrid(x, y)
+Z = X**2 + 3 * Y**2 + 2 * X - 9 * Y
+
+fig = plt.figure(figsize=(8, 6))
+ax = fig.add_subplot(111, projection='3d')
+
+superficie = ax.plot_surface(X, Y, Z, cmap='viridis', edgecolor='none', alpha=0.8)
+
+ax.scatter([-1], [1.5], [-7.75], color='red', s=50, label='Vértice')
+
+ax.set_xlabel('Eje X')
+ax.set_ylabel('Eje Y')
+ax.set_zlabel('Eje Z')
+fig.colorbar(superficie, shrink=0.5, aspect=5)
+
+plt.show()
