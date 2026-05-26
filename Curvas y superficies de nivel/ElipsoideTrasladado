@@ -1,0 +1,26 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig = plt.figure(figsize=(8, 6))
+ax = fig.add_subplot(111, projection='3d')
+
+u = np.linspace(0, 2 * np.pi, 100)
+v = np.linspace(0, np.pi, 100)
+
+a, b, c = 2, 5, 3
+h, k, l = 0, 4, -1
+
+X = h + a * np.outer(np.cos(u), np.sin(v))
+Y = k + b * np.outer(np.sin(u), np.sin(v))
+Z = l + c * np.outer(np.ones(np.size(u)), np.cos(v))
+
+ax.plot_surface(X, Y, Z, color='forestgreen', alpha=0.7, edgecolor='none')
+
+ax.set_xlabel('Eje X')
+ax.set_ylabel('Eje Y')
+ax.set_zlabel('Eje Z')
+ax.set_xlim([-6, 6])
+ax.set_ylim([-2, 10])
+ax.set_zlim([-5, 5])
+
+plt.show()
