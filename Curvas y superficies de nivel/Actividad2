@@ -1,0 +1,24 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig = plt.figure(figsize=(8, 6))
+ax = fig.add_subplot(111, projection='3d')
+
+y_vals = np.linspace(-3, 3, 100)
+z_vals = np.linspace(-4, 4, 100)
+Y, Z = np.meshgrid(y_vals, z_vals)
+
+X_pos = np.sqrt(4 + Y**2)
+X_neg = -np.sqrt(4 + Y**2)
+
+ax.plot_surface(X_pos, Y, Z, color='royalblue', alpha=0.7, edgecolor='none')
+ax.plot_surface(X_neg, Y, Z, color='royalblue', alpha=0.7, edgecolor='none')
+
+ax.set_xlabel('Eje X')
+ax.set_ylabel('Eje Y')
+ax.set_zlabel('Eje Z')
+ax.set_xlim([-5, 5])
+ax.set_ylim([-5, 5])
+ax.set_zlim([-5, 5])
+
+plt.show()
